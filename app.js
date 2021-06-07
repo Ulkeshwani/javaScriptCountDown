@@ -8,15 +8,17 @@ const countDown = () => {
   const hour = minute * 60;
   const day = hour * 24;
 
-  const textDay = Math.floor(gapBetween / day);
-  const textHour = Math.floor((gapBetween % day) / hour);
-  const textMinute = Math.floor((gapBetween % hour) / minute);
-  const textSecond = Math.floor((gapBetween % minute) / second);
+  do {
+    const textDay = Math.floor(gapBetween / day);
+    const textHour = Math.floor((gapBetween % day) / hour);
+    const textMinute = Math.floor((gapBetween % hour) / minute);
+    const textSecond = Math.floor((gapBetween % minute) / second);
 
-  document.querySelector(".day").innerText = textDay;
-  document.querySelector(".hour").innerText = textHour;
-  document.querySelector(".minute").innerText = textMinute;
-  document.querySelector(".second").innerText = textSecond;
+    document.querySelector(".day").innerText = textDay;
+    document.querySelector(".hour").innerText = textHour;
+    document.querySelector(".minute").innerText = textMinute;
+    document.querySelector(".second").innerText = textSecond;
+  } while (gapBetween <= 0);
 };
 
 setInterval(countDown, 1000);
